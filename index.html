@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0;" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+
+    <title>CNSS</title>
+    <style>
+      body,html{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #root{
+        width: 100%;
+        height: 100%;
+      }
+
+      .WalletDownloadPage {
+        margin: auto;
+        height: 100%;
+        padding: 0 25px;
+        background-image: url('https://cnss.oss-cn-shenzhen.aliyuncs.com/app/photo_2020-06-20_17-56-35.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+       .title{
+        background-size: contain;
+        background-image: url('https://cnss.oss-cn-shenzhen.aliyuncs.com/app/downloadTitle.png');
+        background-repeat: no-repeat;
+        height: 36px;
+        width: calc(100% - 50px);
+        position: absolute;
+        bottom: 22px;
+        }
+        .download{
+          margin: auto;
+          height: 40px;
+          width: calc(100% - 50px);
+          border-radius:20px;
+          font-size: 16px;
+          font-weight:600;
+          bottom: 100px;
+          position: absolute;
+          border: none;
+          z-index: 10;
+          color:black;
+          background: white;
+        }
+        button:focus{
+          outline: none;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="WalletDownloadPage">
+        <button onclick="download" id="download" class="download">APP 下载</button>
+        <div class='title'></div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+   document.getElementById('download').onclick = () => {
+    const u = navigator.userAgent
+    const isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    let url = "https://cnss.oss-cn-shenzhen.aliyuncs.com/app/CNSS.apk"
+    if (isIOS) {
+      url = 'https://testflight.apple.com/join/JgJIKFXf'
+    }
+    window.open(url)
+   }
+   
+  </script>
+</html>
